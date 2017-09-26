@@ -1,0 +1,85 @@
+#+STARTUP: hidestars
+
+* [[http://rosalind.info/problems/dna/][A Rapid Introduction to Molecular Biology]]
+  The cell, the building block of life, contains a nucleus
+  filled with chromatin. The Deoxyribose Nucleic Acids are
+  found in chromatin and are strands of similarly structured
+  molecules; in other words, they are polymers made of
+  monomers called nucleotides.
+
+  During mitosis, chromatin condenses into strings called
+  chromosomes, made of super-coils of nucleosomes and
+  proteins. Nucleosomes are made of the DNA in the
+  chromatin, coiled around proteins called histones. 
+
+  .o0(seems to me that they coil into compacted balls of an
+  incredible amount of data before splitting, leaving the
+  original and new cell with the same copy of the data. But
+  then how does a chromosome know to build - itself - in
+  such a way that it can be split equally? Or maybe that is
+  not what happens and both sides of a the symmetrical
+  chromosome contain different info? I'm pretty sure i'll
+  learn about that in the later chapters, even if i already
+  did and forgotten.)
+
+  A nucleotide consists of 3 parts:
+  - sugar, a monosaccharide called deoxyribose
+  - phosphate (some kind of salt)
+  - nucleobase compound
+    - Adenine
+    - Cytosine
+    - Guanine
+    - Thymine
+    - Uracil (to be discussed later in regards to RNA)
+
+  To form a chain of these nucleotides monomers into a
+  polymer, the sugar of one attaches to the phosphate of
+  another to for the backbone of a strand, and the bases
+  attract each other (with this rule: A ⇔ T, C ⇔ G) to form
+  the double helix DNA from two spiraling strands.
+
+  All living organisms on Earth have DNA, including
+  bacteria, but not all viruses.
+
+  .o0(viruses are considered non-living, but bacteries are
+  alive, so antibiotics can recognize them and kill them. is
+  that how it works? how does a virus infection "run its
+  course"?)
+* The Second Nucleic Acid
+  Along with the DNA molecule, the Ribose Nucleic Acid also
+  exists in the chromatin. RNA is very similar in structure
+  to DNA, except:
+  - the sugar is called ribose instead of deoxyribose
+  - the Uracil nucleobase replaces DNA's Thymine
+  - it's a single strand, 
+  - it can go outside of the nucleus
+
+  RNA is created from DNA via an enzyme called RNA
+  Polymerase during RNA Transcription. The 3'-5' strand of a
+  DNA is the template strand, the other is the coding
+  strand. At the end of the transcription, a pre-messenger
+  RNA will be the exact copy of the coding strand, except
+  the pre-mRNA will have the Uracil nucleobase instead of
+  Thymine.
+* Glossary
+  - chromatin :: dense collection of nucleic acids (40%) and
+                 proteins found in the nucleus that's
+                 attracted to dye, hence the name.
+  - genome :: sum total of DNA in an organism
+  - eukaryotic :: of the multicellular domain of life, yet
+                  including some unicellular ones, but seems
+                  like the cells contain a nucleus, a.k.a.
+                  the brain.
+  - mitosis :: the change involving a eukaryotic cell
+               division.
+  - phosphate :: 1 of 3 parts that form the nucleic acid, or
+                 nucleotide; this one a negatively-charged
+                 ion, PO₄
+* Lisp
+** Getting started
+   #+BEGIN_EXAMPLE
+     M-x slime<ret>
+     CL-USER> (ql:quickload "dna")
+     CL-USER> (in-package "dna")
+     CL-USER> *sample*
+   #+END_EXAMPLE
