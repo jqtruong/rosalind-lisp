@@ -75,6 +75,20 @@
   - phosphate :: 1 of 3 parts that form the nucleic acid, or
                  nucleotide; this one a negatively-charged
                  ion, PO₄
+* Sidebar
+** [[https://en.wikipedia.org/wiki/Virus][Virus]]
+   - only replicates inside living cells
+   - consists of 2 or 3 things:
+     1. a genetic material: DNA, RNA, or molecules with
+        genetic information
+     2. a protein coat, called capsid, around the genetic material
+     3. envelope of lipids over the coat when outside the cell
+
+
+   Viruses could be considered life because of the genetic
+   material, reproduction, and evolution, but they don't
+   have a cell structure (like a nucleus?) to actually be
+   living.
 * Lisp
 ** Getting started
    #+BEGIN_EXAMPLE
