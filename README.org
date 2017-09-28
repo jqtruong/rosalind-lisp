@@ -81,14 +81,26 @@
    - consists of 2 or 3 things:
      1. a genetic material: DNA, RNA, or molecules with
         genetic information
-     2. a protein coat, called capsid, around the genetic material
-     3. envelope of lipids over the coat when outside the cell
-
+     2. a protein coat, called capsid, around the genetic
+        material
+     3. envelope of lipids over the coat when outside the
+        cell
 
    Viruses could be considered life because of the genetic
    material, reproduction, and evolution, but they don't
    have a cell structure (like a nucleus?) to actually be
    living.
+
+   The immune system will kill the virus infection. If the
+   body can not fight it on its own, vaccination is given to
+   teach it how to; the host's immune system recognizes the
+   threat in the vaccine, a weakened or dead virus, kills it
+   and learns how to do so later on.
+
+   .o0(if the body was not yet vaccinated, then i think
+   blood (like white cells) from a strong immune system is
+   transfused into the virus-infected host to help fight and
+   teach the host.)
 * Lisp
 ** Getting started
    #+BEGIN_EXAMPLE
