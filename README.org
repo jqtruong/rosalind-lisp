@@ -41,10 +41,10 @@
   All living organisms on Earth have DNA, including
   bacteria, but not all viruses.
 
-  .o0(viruses are considered non-living, but bacteries are
+  .o0(viruses are considered non-living, but bacteria are
   alive, so antibiotics can recognize them and kill them. is
   that how it works? how does a virus infection "run its
-  course"?)
+  course"? See [[*%5B%5Bhttps://en.wikipedia.org/wiki/Virus%5D%5BVirus%5D%5D][#Virus]].)
 * The Second Nucleic Acid
   Along with the DNA molecule, the Ribose Nucleic Acid also
   exists in the chromatin. RNA is very similar in structure
@@ -61,6 +61,15 @@
   RNA will be the exact copy of the coding strand, except
   the pre-mRNA will have the Uracil nucleobase instead of
   Thymine.
+
+  .o0(when is it just an RNA?)
+* [[http://rosalind.info/problems/revc/][The Secondary and Tertiary Structures of DNA]]
+  This chapter re-iterates the double-helix shape of DNA
+  strands, which was proposed by James Watson and Francis
+  Crick in 1953.
+
+  The complementary bases (A ↔ T and C ↔ G) are also called
+  "base-pairs", or "bp" for short.
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
