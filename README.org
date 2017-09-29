@@ -70,6 +70,25 @@
 
   The complementary bases (A ↔ T and C ↔ G) are also called
   "base-pairs", or "bp" for short.
+* [[http://rosalind.info/problems/fib/][Wascally Wabbits]]
+  This chapter covers the Fibonacci series, a man also known
+  as Leonardo de Pisa, and how he solved a
+  somewhat-fictional problem of immortal rabbits reproducing
+  indefinitely, and that a pair of rabbits will attain a
+  count of 144 in a year.
+
+  .o0(it closely ties to cell reproduction, perhaps.)
+
+  Recurrence Relation is adding the next value of a sequence
+  based on the previous values.
+
+  Dynamic Programming is storing calculation for values into
+  a lookup table to be performed when needed, i.e. when
+  calculating a future value in a sequence via Recurrence
+  Relation; recursively calculate previous values.
+
+  .o0(in Lisp, that is similar to "memoization", if not
+  exactly that.)
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
