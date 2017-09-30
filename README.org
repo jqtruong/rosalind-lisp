@@ -45,7 +45,7 @@
   alive, so antibiotics can recognize them and kill them. is
   that how it works? how does a virus infection "run its
   course"?)
-* The Second Nucleic Acid
+* [[http://rosalind.info/problems/rna/][The Second Nucleic Acid]]
   Along with the DNA molecule, the Ribose Nucleic Acid also
   exists in the chromatin. RNA is very similar in structure
   to DNA, except:
@@ -60,16 +60,25 @@
   strand. At the end of the transcription, a pre-messenger
   RNA will be the exact copy of the coding strand, except
   the pre-mRNA will have the Uracil nucleobase instead of
-  Thymine.
+  Thymine. 
+
+  pre-mRNA becomes mRNA through RNA splicing, during which
+  introns are spliced out and only exons remain, although
+  some get spliced out too. The end result is a protein that
+  travels outside the nucleus to perform cell tasks.
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
                  attracted to dye, hence the name.
-  - genome :: sum total of DNA in an organism
   - eukaryotic :: of the multicellular domain of life, yet
                   including some unicellular ones, but seems
                   like the cells contain a nucleus, a.k.a.
                   the brain.
+  - exon :: protein-coding region in a gene
+  - genome :: sum total of DNA in an organism
+  - intron :: non-protein-coding region in a gene, most
+              commonly found in humans, and so much in
+              bacteria.
   - mitosis :: the change involving a eukaryotic cell
                division.
   - phosphate :: 1 of 3 parts that form the nucleic acid, or
