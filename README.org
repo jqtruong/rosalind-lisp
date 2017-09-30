@@ -94,7 +94,6 @@
 
   .o0(in Lisp, that is similar to "memoization", if not
   exactly that.)
->>>>>>> 7e63e28682bce0e52f1472877bfb1098bb8d417a
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
