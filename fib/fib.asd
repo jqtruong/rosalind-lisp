@@ -1,10 +1,10 @@
-;;;; rna.asd
+;;;; fib.asd
 
-(asdf:defsystem #:rna
-  :serial t
-  :description "Describe rna here"
+(asdf:defsystem #:fib
+  :description "Describe fib here"
   :author "Your Name <your.name@example.com>"
   :license "Specify license here"
+  :serial t
   :components ((:file "package")
-               (:file "rna")))
+               (:file "fib")))
 
