@@ -92,8 +92,64 @@
   calculating a future value in a sequence via Recurrence
   Relation; recursively calculate previous values.
 
-  .o0(in Lisp, that is similar to "memoization", if not
-  exactly that.)
+  .o0(in Lisp, that is similar to "[[http://kaygun.tumblr.com/post/98251739694/a-memoization-macro-for-common-lisp][memoization]]".)
+** Sample
+   Find the number of pairs, starting with 1 pair, in 5
+   months, if a pair of rabbits give 3 offsprings each
+   month.
+
+   #+BEGIN_EXAMPLE
+     0 - a0
+     1 - A0
+     2 - A0 b0 b1 b2
+     3 - A0 c0 c1 c2 B0 B1 B2
+     4 - A0 d0 d1 d2 C0 C1 C2 B0 e0 e1 e2 B1 f0 f1 f2 B2 g0 g1 g2
+
+     Legend
+     ------
+     # :: months in
+     lower case letter :: new born pair
+     upper case letter :: grown up and ready to mate pair
+   #+END_EXAMPLE
+** Compare standard recursion against memoize
+   Standard recursion:
+   #+BEGIN_EXAMPLE
+     (time (fib::rabbit-fib 40 5))
+     Evaluation took:
+       2.907 seconds of real time
+       2.907632 seconds of total run time (2.907632 user, 0.000000 system)
+       100.03% CPU
+       8,705,812,260 processor cycles
+       0 bytes consed
+  
+     148277527396903091
+   #+END_EXAMPLE
+
+   Memoized:
+   #+BEGIN_EXAMPLE
+     (time (fib::rabbit-fib 40 5))
+     Evaluation took:
+       0.000 seconds of real time
+       0.000056 seconds of total run time (0.000053 user, 0.000003 system)
+       100.00% CPU
+       162,210 processor cycles
+       0 bytes consed
+  
+     148277527396903091
+   #+END_EXAMPLE
+* [[http://rosalind.info/problems/gc/][Identifying Unknown DNA Quickly]]
+  Using frequency to determine origin of a long enough sample.
+  
+  Human genome has 3.2 billion base pairs, derived from an
+  average of a collection of individuals.
+
+  The Guanine-Cytosine base-pair content in a molecule is
+  used to determine origin of a molecule, e.g. type of
+  animal, plant, virus, etc. it came from. Although,
+  typically 50% in eukaryotic genomes, different species can
+  be distinguished by tiny discrepancies of that ratio,
+  e.g. prokaryotes (like bacteria) have a GC-content higher
+  than 50%.
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
@@ -103,6 +159,7 @@
                   like the cells contain a nucleus, a.k.a.
                   the brain.
   - exon :: protein-coding region in a gene
+  - FASTA format :: method to label DNA samples in a database
   - genome :: sum total of DNA in an organism
   - intron :: non-protein-coding region in a gene, most
               commonly found in humans, and so much in
@@ -112,6 +169,7 @@
   - phosphate :: 1 of 3 parts that form the nucleic acid, or
                  nucleotide; this one a negatively-charged
                  ion, PO₄
+  - prokaryote :: unicellular bacterial organism
 * Sidebar
 ** [[https://en.wikipedia.org/wiki/Virus][Virus]]
    - only replicates inside living cells

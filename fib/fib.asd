@@ -1,10 +1,10 @@
 ;;;; fib.asd
 
 (asdf:defsystem #:fib
-  :description "Describe fib here"
-  :author "Your Name <your.name@example.com>"
-  :license "Specify license here"
+  :description "Solving for http://rosalind.info/problems/fib/"
+  :author "Jerome Truon <jerometruong@gmail.com>"
+  :license "NE1"
   :serial t
+  :depends-on (#:funs)
   :components ((:file "package")
                (:file "fib")))
-
