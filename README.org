@@ -158,6 +158,7 @@
 
   Comparing DNA from two species might reveal a common
   ancestor.
+* [[http://rosalind.info/problems/iprb/][Introduction to Mendelian Inheritance]]
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
