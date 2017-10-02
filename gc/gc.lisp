@@ -67,11 +67,25 @@ of 0.001 in all decimal answers unless otherwise stated; please see
 the note on absolute error below."
 
   (let ((fasta-table (make-fasta-hash-table data))
-        (gc-table    (make-hash-table)))
+        (gc-table    (make-hash-table))
+        (max-key     nil)
+        (max-value   -1))
     (maphash #'(lambda (k v)
                  (setf (gethash k gc-table) (calc-gc-content v)))
-             fasta-table)))
+             fasta-table)
+    (with-hash-table-iterator (iter gc-table)
+      (loop
+         (multiple-value-bind (entry-p key value) (iter)
+           (if entry-p
+               (when (> value max-value)
+                 (setf max-key   key)
+                 (setf max-value value))
+               (return)))))
+    (list max-key (gethash max-key gc-table))))
 
+;;; Tests
 (= (calc-gc-content "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
 TGGGAACCTGCGGGCAGTAGGTGGAAT")
    *sample-gc-content-value*)
+
+(equal (max-gc-content *sample-dataset*) '(60.91954 "Rosalind_0808"))
