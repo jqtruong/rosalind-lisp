@@ -83,9 +83,19 @@ the note on absolute error below."
                (return)))))
     (list max-key (gethash max-key gc-table))))
 
-;;; Tests
-(= (calc-gc-content "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
-TGGGAACCTGCGGGCAGTAGGTGGAAT")
-   *sample-gc-content-value*)
+(defun print-max-gc-content (data)
+  (let ((max (max-gc-content data)))
+    (format t "~a~%~6$" (car max) (cadr max))))
 
-(equal (max-gc-content *sample-dataset*) '(60.91954 "Rosalind_0808"))
+;;; Tests
+(format t "
+;;;;;;;;;;;
+;; Tests ;;
+;;;;;;;;;;;
+Calculate GC-Content: ~a
+Max GC-Content: ~a
+"
+        (= (calc-gc-content "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
+TGGGAACCTGCGGGCAGTAGGTGGAAT")
+           *sample-gc-content-value*)
+        (equal (max-gc-content *sample-dataset*) '("Rosalind_0808" 60.91954)))
