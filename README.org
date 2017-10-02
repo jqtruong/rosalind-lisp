@@ -150,6 +150,14 @@
   be distinguished by tiny discrepancies of that ratio,
   e.g. prokaryotes (like bacteria) have a GC-content higher
   than 50%.
+* [[http://rosalind.info/problems/hamm/][Evolution as a Sequence of Mistakes]]
+  Point mutations happen at the DNA level and can cause a
+  ripple effect since protein creation starts from genes
+  coded in the DNA. Mutations are not all bad though, else
+  there would (or might) not be evolution.
+
+  Comparing DNA from two species might reveal a common
+  ancestor.
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
