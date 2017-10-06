@@ -159,6 +159,69 @@
   Comparing DNA from two species might reveal a common
   ancestor.
 * [[http://rosalind.info/problems/iprb/][Introduction to Mendelian Inheritance]]
+** Sample
+   Given a number for each of
+   the following organisms with alleles:
+   - =k= have dominant homozygous
+   - =m= heterozygous
+   - =n= recessive homozygous
+   and selecting two at random from any pool, calculate the
+   probability that their offspring would have a dominant
+   gene, from the =k= or =m= pools.
+
+   Given the following count, for a total of 6:
+   - k: 2
+   - m: 2
+   - n: 2
+
+   Note: Capital letters represents dominance, so we can
+   write it as such: KK Mm nn.
+
+   To produce an offspring with a dominant allele:
+
+
+   #+BEGIN_EXAMPLE
+     offspring
+     ⤷ k → k = 2/6 * 1/5 at 100%
+     ⤷ k → m = 2/6 * 2/5 at 100%
+     ⤷ k → n = 2/6 * 2/5 at 100%
+     ⤷ m → k = 2/6 * 2/5 at 100%
+     ⤷ m → m = 2/6 * 1/5 at  75%
+     ⤷ m → n = 2/6 * 2/5 at  50%
+     ⤷ n → k = 2/6 * 2/5 at 100%
+     ⤷ n → m = 2/6 * 2/5 at  50%
+     ⤷ n → n = 2/6 * 1/5 at   0%
+   #+END_EXAMPLE
+
+   The =k= pool: 100%
+   |   | K  | K  |
+   | K | KK | KK |
+   | K | KK | KK |
+
+   Mixing the =k= with the =m= pool: 100%
+   |   | K  | K  |
+   | M | KM | KM |
+   | m | Km | Km |
+
+   Mixing the =k= with the =n= pool: 100%
+   |   | K  | K  |
+   | n | Kn | Kn |
+   | n | Kn | Kn |
+
+   The =m= pool: 75%
+   |   | M  | m  |
+   | M | MM | Mm |
+   | m | Mm | mm |
+
+   Mixing the =m= with the =n= pool: 50%
+   |   | M  | m  |
+   | n | Mn | mn |
+   | n | Mn | nn |
+
+   The =n= pool: 0%
+   |   | n  | n  |
+   | n | nn | nn |
+   | n | nn | nn |
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
@@ -175,6 +238,11 @@
               bacteria.
   - mitosis :: the change involving a eukaryotic cell
                division.
+  - phenotype :: the complete set of an organism's
+                 observable characteristics: morphological
+                 (appearance), developmental, biochemical
+                 and physiological properties, behavioral
+                 and products of given behavior.
   - phosphate :: 1 of 3 parts that form the nucleic acid, or
                  nucleotide; this one a negatively-charged
                  ion, PO₄
