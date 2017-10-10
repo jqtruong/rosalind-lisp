@@ -222,6 +222,12 @@
    |   | n  | n  |
    | n | nn | nn |
    | n | nn | nn |
+* [[http://rosalind.info/problems/prot/][The Genetic Code]]
+  Protein chains are made of amino acids, and are defined by
+  the order and combination of those.o0(so not made of 20
+  amino acids.) Some proteins, like the hemoglobin which
+  carry oxygen from the lungs to the body's tissues, are
+  made of subchains called polypeptides.
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
