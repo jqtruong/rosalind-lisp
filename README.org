@@ -159,6 +159,22 @@
   Comparing DNA from two species might reveal a common
   ancestor.
 * [[http://rosalind.info/problems/iprb/][Introduction to Mendelian Inheritance]]
+  Gregor Mendel describes hereditiy, how a trait is passed
+  down from parent to child. A unit of heredity is called a
+  factor, a.k.a. a gene in regards to heredity, and has two
+  forms, called alleles. A trait variations are determined
+  by those alleles. A pair of chromosomes contain gene data
+  for a particular trait at a particular spot on both
+  strands, called the locus. If that pair of genes are
+  different, then those alleles are heterozygous, else
+  homozygous. If a parent has blue eyes, and the other has
+  brown eyes, and the child is born with blue eyes, then
+  that parent's allele in the child is dominant, and the
+  other is recessive. But, they say most traits are a result
+  of "the interaction of multiple genes", so non-Mendelian.
+  
+  .o0(some people have wet or dry earwax, and that's a
+  Mendelian trait!)
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
