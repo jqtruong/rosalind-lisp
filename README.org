@@ -239,11 +239,59 @@
    | n | nn | nn |
    | n | nn | nn |
 * [[http://rosalind.info/problems/prot/][The Genetic Code]]
-  Protein chains are made of amino acids, and are defined by
-  the order and combination of those.o0(so not made of 20
-  amino acids.) Some proteins, like the hemoglobin which
-  carry oxygen from the lungs to the body's tissues, are
-  made of subchains called polypeptides.
+  Protein chains are made of amino acids and are defined by
+  the order and combination of those.o0(so not made of all
+  the 20 amino acids.) Those chains are called polypeptides.
+  Some proteins are made of a single polypeptide while
+  others, like the hemoglobin which carry oxygen from the
+  lungs to the body's tissues, are made of smaller chains (4
+  polypeptide chains for the hemoglobin.)
+
+  Proteomics is field to study proteins and their
+  properties. As cells create proteins to create functions,
+  those 20 amino acids are somewhat key to figuring out how
+  life works, as opposed to what makes it life.
+
+  an mRNA translates into amino acids for protein creation,
+  so 4 nucleotides combines into (more than) 20 acids, in
+  groups of 3, somehow, called codons. 4^3 = 64 combinations,
+  so many codons produce the same amino acid.
+
+  There are two special codons:
+  1. AUG; amino acid methionine, start of translation
+  2. UAA, UAG, UGA; not an amino acid but signals end of
+     translation
+
+  Ribosome organelles use transfer-RNA to build peptides.
+  The tRNA has 3 RNA nucleotides, called the anticodon, on
+  one end to reverse-match with 3 mRNA nucleotides, i.e. a
+  codon, and attach to, whereas the other end is an amino
+  acid that's stripped and added to the peptide chain. The
+  rest of the tRNA, the middle section is ejected into the
+  cell?
+
+  The interval of (D|R)NA that translates into a protein is
+  called a gene. Genes also differentiate organisms, serve
+  as a basis for heredity.
+** RNA codon table
+   | Uracil |      | Cytosine |   | Adanine |           | Guanine |   |
+   |--------+------+----------+---+---------+-----------+---------+---|
+   | UUU    | F    | CUU      | L | AUU     | I         | GUU     | V |
+   | UUC    | F    | CUC      | L | AUC     | I         | GUC     | V |
+   | UUA    | L    | CUA      | L | AUA     | I         | GUA     | V |
+   | UUG    | L    | CUG      | L | AUG     | M (Start) | GUG     | V |
+   | UCU    | S    | CCU      | P | ACU     | T         | GCU     | A |
+   | UCC    | S    | CCC      | P | ACC     | T         | GCC     | A |
+   | UCA    | S    | CCA      | P | ACA     | T         | GCA     | A |
+   | UCG    | S    | CCG      | P | ACG     | T         | GCG     | A |
+   | UAU    | Y    | CAU      | H | AAU     | N         | GAU     | D |
+   | UAC    | Y    | CAC      | H | AAC     | N         | GAC     | D |
+   | UAA    | Stop | CAA      | Q | AAA     | K         | GAA     | E |
+   | UAG    | Stop | CAG      | Q | AAG     | K         | GAG     | E |
+   | UGU    | C    | CGU      | R | AGU     | S         | GGU     | G |
+   | UGC    | C    | CGC      | R | AGC     | S         | GGC     | G |
+   | UGA    | Stop | CGA      | R | AGA     | R         | GGA     | G |
+   | UGG    | W    | CGG      | R | AGG     | R         | GGG     | G |
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
