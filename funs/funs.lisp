@@ -2,9 +2,9 @@
 
 (in-package #:funs)
 
-(defun to-string (nts)
-  "Convert a list of characters representing nucleotides in `NTS' into a string."
-  (format nil "~{~a~^~}" nts))
+(defun to-string (chars)
+  "Convert a list of characters in `CHARS' into a string."
+  (format nil "~{~a~^~}" chars))
 
 (defmacro memoize (name args desc body)
   "From http://kaygun.tumblr.com/post/98251739694/a-memoization-macro-for-common-lisp"
@@ -18,3 +18,14 @@
                val
                (setf (gethash (list ,@args) ,hash-name)
                      ,body)))))))
+
+(defmacro construct-table (copy)
+  "Raw copied table, e.g. "
+  `(loop for (k v) on ,copy by #'cddr
+      for key = (if (symbolp k)
+                    (symbol-name k)
+                    k)
+      for val = (if (symbolp v)
+                    (symbol-name v)
+                    v)
+      collect (cons key val)))
