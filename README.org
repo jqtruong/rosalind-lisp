@@ -292,6 +292,20 @@
    | UGC    | C    | CGC      | R | AGC     | S         | GGC     | G |
    | UGA    | Stop | CGA      | R | AGA     | R         | GGA     | G |
    | UGG    | W    | CGG      | R | AGG     | R         | GGG     | G |
+* [[http://rosalind.info/problems/subs/][Combing Through the Haystack]]
+  Similar intervals in DNA found in two different organisms
+  could mean a gene or protein that provides the same trait
+  or function; such intervals are called "motifs". Not to be
+  confused by repeats, which are similarly occurring
+  sequences of nucleotides but provide no known positive
+  purpose, like the Alu repeat which is tied to cause
+  genetic disorders.
+
+  .o0(more on [[https://en.wikipedia.org/wiki/Alu_element][Arthrobacter luteus]] and its negative effects,
+  including cancer, on humans, but it's 300 bp long and
+  kinda of big deal as it occupies 10.7% of the human
+  genome and can replicate to be inserted elsewhere on the
+  genome, as well as move about, a.k.a. retrotransposon.)
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
