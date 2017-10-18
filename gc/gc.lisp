@@ -10,7 +10,8 @@ CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT
 ATATCCATTTGTCAGCAGACACGC
 >Rosalind_0808
 CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
-TGGGAACCTGCGGGCAGTAGGTGGAAT")
+TGGGAACCTGCGGGCAGTAGGTGGAAT
+")
 
 (defvar *sample-output* "Rosalind_0808
 60.919540")
@@ -19,11 +20,11 @@ TGGGAACCTGCGGGCAGTAGGTGGAAT")
 
 (defun calc-gc-content (strand)
   "Return the ratio of Guanine and Cytosine in a strand."
-  (let* ((bases (dna::count-bases (remove #\Newline strand)))
-         (As (dna::get-count :A bases))
-         (Cs (dna::get-count :C bases))
-         (Gs (dna::get-count :G bases))
-         (Ts (dna::get-count :T bases)))
+  (let* ((bases (dna::count-bases strand))
+         (As (dna::get-count #\A bases))
+         (Cs (dna::get-count #\C bases))
+         (Gs (dna::get-count #\G bases))
+         (Ts (dna::get-count #\T bases)))
     (* (/ (+ Gs Cs)
           (+ As Cs Gs Ts))
        100.0)))
@@ -56,7 +57,7 @@ the note on absolute error below."
 
 (defun print-max-gc-content (data)
   (let ((max (max-gc-content data)))
-    (format t "~a~%~6$" (car max) (cadr max))))
+    (format t "~a~%~6f" (car max) (cadr max))))
 
 ;;; Tests
 (format t "

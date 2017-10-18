@@ -330,6 +330,24 @@
 
   This DNA string would be the most likely common ancestor
   from the given 7 DNA strings.
+** Transpose
+   From:
+   | 1 | A | T | C | C | A | G | C | T |
+   | 2 | G | G | G | C | A | A | C | T |
+   | 3 | A | T | G | G | A | T | C | T |
+   | 4 | A | A | G | C | A | A | C | C |
+   | 5 | T | T | G | G | A | A | C | T |
+   | 6 | A | T | G | C | C | A | T | T |
+   | 7 | A | T | G | G | C | A | C | T |
+
+   To:
+   | 1 | A | T | C | C | A | G | C | T |
+   | 2 | G | G | G | C | A | A | C | T |
+   | 3 | A | T | G | G | A | T | C | T |
+   | 4 | A | A | G | C | A | A | C | C |
+   | 5 | T | T | G | G | A | A | C | T |
+   | 6 | A | T | G | C | C | A | T | T |
+   | 7 | A | T | G | G | C | A | C | T |
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
@@ -389,3 +407,6 @@
      CL-USER> (in-package "dna")
      CL-USER> *sample*
    #+END_EXAMPLE
+* TODOs
+** TODO split functions from files
+   and create new problem solving files

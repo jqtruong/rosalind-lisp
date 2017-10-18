@@ -5,6 +5,15 @@
 (defvar *sample-dataset* "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
 (defvar *sample-output "20 12 17 21")
 
+(defun get-count (key bases)
+  (cdr (assoc key bases)))
+
+(defun get-majority-base (base-counts)
+  (reduce #'(lambda (a b) 
+              (cond ((> (cdr a) (cdr b)) a)
+                    (t b)))
+          base-counts))
+
 (defun count-bases (strand)
   "Given: A DNA string `STRAND' of length at most 1000 nt (nucleotides).
 
@@ -17,15 +26,12 @@ times that the symbols `A', `C', `G', and `T' occur in `STRAND'."
      counting (char-equal #\G nt) into Guanine
      counting (char-equal #\T nt) into Thymine
      finally
-       (return `((:A . ,Adenine) (:C . ,Cytosine) (:G . ,Guanine) (:T . ,Thymine)))))
-
-(defun get-count (key bases)
-  (cdr (assoc key bases)))
+       (return `((#\A . ,Adenine) (#\C . ,Cytosine) (#\G . ,Guanine) (#\T . ,Thymine)))))
 
 (defun print-base-count (strand)
   (let ((bases (count-bases strand)))
     (format t "~d ~d ~d ~d"
-            (cdr (assoc :A bases))
-            (cdr (assoc :C bases))
-            (cdr (assoc :G bases))
-            (cdr (assoc :T bases)))))
+            (get-count #\A bases)
+            (get-count #\C bases)
+            (get-count #\G bases)
+            (get-count #\T bases))))

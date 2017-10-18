@@ -36,8 +36,12 @@
                     v)
       collect (cons key val)))
 
-;;; @TODO move to fasta project
-;;; @TODO add safety check for newline
+;;; 
+;;;--- TODO move to fasta project
+;;; 
+;;;--- TODO add safety check for newline at the end, or a real
+;;;--- solution!
+;;; 
 (defun make-fasta-hash-table (data)
   "Make a hash table of FASTA strings from `DATA'."
   (let ((fasta-table (make-hash-table))
@@ -52,6 +56,6 @@
                    data-len)
        for key = (subseq data (1+ j) k)
        for val = (subseq data (1+ k) (1- l))
-       do (setf (gethash key fasta-table) val))
+       do (setf (gethash key fasta-table) (remove #\Newline val)))
 
     fasta-table))
