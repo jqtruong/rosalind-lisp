@@ -35,3 +35,23 @@
                     (symbol-name v)
                     v)
       collect (cons key val)))
+
+;;; @TODO move to fasta project
+;;; @TODO add safety check for newline
+(defun make-fasta-hash-table (data)
+  "Make a hash table of FASTA strings from `DATA'."
+  (let ((fasta-table (make-hash-table))
+        (data-len (length data)))
+    (loop 
+       for i = 0 then l
+
+       while (not (= i data-len))
+       for j = (position #\> data :start i) ; start of a FASTA string
+       for k = (position #\Newline data :start j) ; end of label
+       for l = (or (position #\> data :start k)   ; end of strand
+                   data-len)
+       for key = (subseq data (1+ j) k)
+       for val = (subseq data (1+ k) (1- l))
+       do (setf (gethash key fasta-table) val))
+
+    fasta-table))

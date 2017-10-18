@@ -10,41 +10,12 @@ CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT
 ATATCCATTTGTCAGCAGACACGC
 >Rosalind_0808
 CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
-TGGGAACCTGCGGGCAGTAGGTGGAAT
-")
+TGGGAACCTGCGGGCAGTAGGTGGAAT")
 
 (defvar *sample-output* "Rosalind_0808
 60.919540")
 
 (defvar *sample-gc-content-value* 60.919540)
-
-(defun split-by-one-space (string)
-  "Returns a list of substrings of string divided by ONE space each.
-Note: Two consecutive spaces will be seen as if there were an empty
-string between them."
-  (loop for i = 0 then (1+ j)
-     as j = (position #\Space string :start i)
-     collect (subseq string i j)
-     while j))
-
-;;; @TODO move to fasta project
-(defun make-fasta-hash-table (data)
-  "Make a hash table of FASTA strings from `DATA'."
-  (let ((fasta-table (make-hash-table))
-        (data-len (length data)))
-    (loop 
-       for i = 0 then l
-
-       while (not (= i data-len))
-       for j = (position #\> data :start i) ; start of a FASTA string
-       for k = (position #\Newline data :start j) ; end of label
-       for l = (or (position #\> data :start k)   ; end of strand
-                   data-len)
-       for key = (subseq data (1+ j) k)
-       for val = (subseq data (1+ k) (1- l))
-       do (setf (gethash key fasta-table) val))
-
-    fasta-table))
 
 (defun calc-gc-content (strand)
   "Return the ratio of Guanine and Cytosine in a strand."
@@ -66,7 +37,7 @@ by the GC-content of that string. Rosalind allows for a default error
 of 0.001 in all decimal answers unless otherwise stated; please see
 the note on absolute error below."
 
-  (let ((fasta-table (make-fasta-hash-table data))
+  (let ((fasta-table (funs::make-fasta-hash-table data))
         (gc-table    (make-hash-table))
         (max-key     nil)
         (max-value   -1))

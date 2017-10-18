@@ -306,6 +306,30 @@
   kinda of big deal as it occupies 10.7% of the human
   genome and can replicate to be inserted elsewhere on the
   genome, as well as move about, a.k.a. retrotransposon.)
+* [[http://rosalind.info/problems/cons/][Finding a Most Likely Common Ancestor]]
+  Using a profile matrix, we can determine a consensus
+  string, which contains the most abundant nucleobases in
+  each column. I.e., given DNA strings (in matrix form):
+
+  | 1 | A | T | C | C | A | G | C | T |
+  | 2 | G | G | G | C | A | A | C | T |
+  | 3 | A | T | G | G | A | T | C | T |
+  | 4 | A | A | G | C | A | A | C | C |
+  | 5 | T | T | G | G | A | A | C | T |
+  | 6 | A | T | G | C | C | A | T | T |
+  | 7 | A | T | G | G | C | A | C | T |
+  
+  The profile matrix is:
+  | A | 5 | 1 | 0 | 0 | 5 | 5 | 0 | 0 |
+  | C | 0 | 0 | 1 | 4 | 2 | 0 | 6 | 1 |
+  | G | 1 | 1 | 6 | 3 | 0 | 1 | 0 | 0 |
+  | T | 1 | 5 | 0 | 0 | 0 | 1 | 1 | 6 |
+
+  And the consensus string results in:
+  |   | A | T | G | C | A | A | C | T |
+
+  This DNA string would be the most likely common ancestor
+  from the given 7 DNA strings.
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
