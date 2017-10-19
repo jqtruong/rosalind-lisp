@@ -330,6 +330,54 @@
 
   This DNA string would be the most likely common ancestor
   from the given 7 DNA strings.
+* [[http://rosalind.info/problems/fibd/][Wabbit Season]]
+  Revisiting the Fibonacci rate for rabbits reproduction but
+  introducing the mortality rate.
+
+  Originally, the formula was: F_n = F_(n-1) + F_(n-2), just
+  need to determine another to incorporate the death of a
+  pair of rabbits after a given number of months. Also,
+  pairs of rabbits strictly give one offspring per cycle.
+** Sample
+   [[http://rosalind.info/media/problems/fibd/mortal_rabbit_tree.png][Figure 4]] shows an example clearly enough. In 6 cycles,
+   starting with a pair of rabbits that will give a single
+   offspring per cycle, and die in 3, results in 4 rabbits.
+
+   To see a pattern, let's expand on it:
+   |     | 1 |  2 |   3 |  4 | 5   | 6   | 7   | 8   | 9   | 10  |
+   |-----+---+----+-----+----+-----+-----+-----+-----+-----+-----|
+   | a   | - | -- | --- |    |     |     |     |     |     |     |
+   | b   |   |    |  2a | -- | --- |     |     |     |     |     |
+   | c   |   |    |     | 3a | --  | --- |     |     |     |     |
+   | d   |   |    |     |    | 4b  | --  | --- |     |     |     |
+   | e   |   |    |     |    |     | 5b  | --  | --- |     |     |
+   | f   |   |    |     |    |     | 5c  | --  | --- |     |     |
+   | g   |   |    |     |    |     |     | 6c  | --  | --- |     |
+   | h   |   |    |     |    |     |     | 6d  | --  | --- |     |
+   | i   |   |    |     |    |     |     |     | 7d  | --  | --- |
+   | j   |   |    |     |    |     |     |     | 7e  | --  | --- |
+   | k   |   |    |     |    |     |     |     | 7f  | --  | --- |
+   | l   |   |    |     |    |     |     |     |     | 8e  | --  |
+   | m   |   |    |     |    |     |     |     |     | 8f  | --  |
+   | n   |   |    |     |    |     |     |     |     | 8g  | --  |
+   | o   |   |    |     |    |     |     |     |     | 8h  | --  |
+   | p   |   |    |     |    |     |     |     |     |     | 9g  |
+   | q   |   |    |     |    |     |     |     |     |     | 9h  |
+   | r   |   |    |     |    |     |     |     |     |     | 9i  |
+   | s   |   |    |     |    |     |     |     |     |     | 9j  |
+   | t   |   |    |     |    |     |     |     |     |     | 9k  |
+   |-----+---+----+-----+----+-----+-----+-----+-----+-----+-----|
+   | tot | 1 |  1 |   2 |  2 | 3   | 4   | 5   | 7   | 9   | 12  |
+
+   The new pattern is: F_n = F_(n-2) + F_(n-3).
+
+   With a mortality rate of 4:
+   |   | 1 |  2 | 3   | 4    | 5   | 6    |    7 | 8 | 9 | 10 |
+   |---+---+----+-----+------+-----+------+------+---+---+----|
+   | a | - | -- | --- | ---- |     |      |      |   |   |    |
+   | b |   |    | 2a  | --   | --- | ---- |      |   |   |    |
+   | c |   |    |     | 3a   | --  | ---  | ---- |   |   |    |
+   | d |   |    |     |      |     |      |      |   |   |    |
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's

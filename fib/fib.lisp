@@ -4,7 +4,8 @@
 
 ;;; "fib" goes here. Hacks and glory await!
 
-(defvar *sample* '(5 3))
+(defvar *sample-dataset-cycle* 5)
+(defvar *sample-dataset-rate*  3)
 
 (funs::memoize
  rabbit-fib (n k)

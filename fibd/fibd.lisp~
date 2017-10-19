@@ -1,0 +1,6 @@
+;;;; fibd.lisp
+
+(in-package #:fibd)
+
+;;; "fibd" goes here. Hacks and glory await!
+
