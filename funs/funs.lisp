@@ -13,7 +13,7 @@
      do (format t "~a" sep)))
 
 (defmacro memoize (name args desc body)
-  "From http://kaygun.tumblr.com/post/98251739694/a-memoization-macro-for-common-lisp"
+  "From http://kaygun.tumblr.com/post/98251739694/a-memoization-macro-for-common-lisp."
   (let ((hash-name (gensym)))
     `(let ((,hash-name (make-hash-table :test 'equal)))
        (defun ,name ,args

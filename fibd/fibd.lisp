@@ -12,9 +12,8 @@ the n-th month if all rabbits live for m months."
  (cond
    ((zerop n) 0)
    ((= n 1)   1)
-
-   ;; need more reqs here depending on mortality rate
-   
-   (t (+ (rabbit-fib (1- n) k)     ; number of pairs in the last cycle
-         (* (rabbit-fib (- n 2) k) ; number of pairs 2 cycles ago
-            k)))))
+   ((= n 2)   1)
+   ((<= n m)  (+ (calc-rabbits (- n 1) m)   ; number of pairs in the last cycle
+                 (calc-rabbits (- n 2) m))) ; number of pairs 2 cycles ago
+   (t (apply #'+ (loop for x from m downto 2
+                    collect (calc-rabbits (- n x) m))))))
