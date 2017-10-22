@@ -44,7 +44,7 @@
 ;;; 
 (defun make-fasta-hash-table (data)
   "Make a hash table of FASTA strings from `DATA'."
-  (let ((fasta-table (make-hash-table))
+  (let ((fasta-table (make-hash-table :test 'equal))
         (data-len (length data)))
     (loop 
        for i = 0 then l

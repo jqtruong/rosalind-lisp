@@ -1,11 +1,11 @@
-;;;; cons.asd
+;;;; grph.asd
 
-(asdf:defsystem #:cons
-  :description "Describe cons here"
+(asdf:defsystem #:grph
+  :description "Describe grph here"
   :author "Your Name <your.name@example.com>"
   :license "Specify license here"
   :serial t
   :depends-on (#:funs)
   :components ((:file "package")
-               (:file "cons")))
+               (:file "grph")))
 

@@ -413,6 +413,9 @@
 
    E.g. at F_5 in the previous example, we get the one that
    was born two cycles ago, 
+* [[http://rosalind.info/problems/grph/][A Brief Introduction to Graph Theory]]
+  .o0(nothing of biological learning value here; it just
+  explains graph theory.)
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
