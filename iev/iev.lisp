@@ -28,3 +28,12 @@ the next generation, under the assumption that every couple has exactly
      collect (* num (apply #'iprb::dominance-ratio pairing)) into expected-values
      finally
        (return (* children-per-couple (apply #'+ expected-values)))))
+
+;;; Tests
+(format t "
+;;;;;;;;;;;
+;; Tests ;;
+;;;;;;;;;;;
+Dominance expected value: ~a
+"
+        (= (dominance-expected-value *sample-dataset* 2) *sample-output*))
