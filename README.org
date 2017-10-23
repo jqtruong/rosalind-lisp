@@ -420,6 +420,9 @@
   .o0(again, nothing of biological learning value here, just
   the importance of predicting a possible future based on
   averages of collected data.)
+* [[http://rosalind.info/problems/lcsm/][Searching Through the Haystack]]
+  .o0(bare minimal description to find the longest common
+  substring within DNA strands.)
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's
