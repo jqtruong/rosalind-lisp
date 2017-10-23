@@ -5,7 +5,7 @@
 (defvar *sample-dataset* '(2 2 2))
 (defvar *sample-output* 0.78333)
 
-(defun calc-dominance (k m n)
+(defun dominance-ratio (k m n)
   "Given: Three positive integers `K', `M', and `N',
 representing a population containing $k+m+n$ organisms: `K' individuals are
 homozygous dominant for a factor, `M' are heterozygous, and `N' are homozygous
@@ -51,7 +51,7 @@ phenotype). Assume that any two organisms can mate."
 ;;;;;;;;;;;
 ;; Tests ;;
 ;;;;;;;;;;;
-Calculate dominance chance: ~a
+Calculate dominance ratio: ~a
 "
-        (= (float (/ (truncate (* 100000 (apply #'calc-dominance *sample-dataset*))) 100000))
+        (= (float (/ (truncate (* 100000 (apply #'dominance-ratio *sample-dataset*))) 100000))
            *sample-output*))

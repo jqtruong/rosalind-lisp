@@ -416,6 +416,10 @@
 * [[http://rosalind.info/problems/grph/][A Brief Introduction to Graph Theory]]
   .o0(nothing of biological learning value here; it just
   explains graph theory.)
+* [[http://rosalind.info/problems/iev/][The Need for Averages]]
+  .o0(again, nothing of biological learning value here, just
+  the importance of predicting a possible future based on
+  averages of collected data.)
 * Glossary
   - chromatin :: dense collection of nucleic acids (40%) and
                  proteins found in the nucleus that's

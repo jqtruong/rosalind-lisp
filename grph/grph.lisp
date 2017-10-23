@@ -19,7 +19,8 @@ Rosalind_0498 Rosalind_0442
 Rosalind_2391 Rosalind_2323")
 
 (defun adjacency-list (data k)
-  "Given: A collection of DNA strings in FASTA format having total length at most 10 kbp.
+  "Given: A collection of DNA strings in FASTA format having total length at
+most 10 kbp.
 
 Return: The adjacency list corresponding to O(k). You may return edges in any
 order."
