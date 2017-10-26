@@ -38,13 +38,31 @@ exist, you may return any single solution.)"
              for j from (1+ i) below min-len
              for seq = (subseq (cdr shortest-strand) i j)))))
 
-;;; pick the shorest strand and print substrings of length of 2 then go higher
-;;; until length of strand, starting with the first nt ending below the last.
-(loop for i below 4
-   do (loop for j from (+ 2 i) upto 5
-         for seq = (subseq "ATATA" i j)
-         do (format t "~a~%" seq)))
-
-;;; record the substrings that have already been looked at.
-(let ((shortest-strand (find-shortest-strand (funs::make-fasta-hash-table *sample-dataset*))))
-  )
+;;; record the substrings that have already been looked at, using the shortest
+;;; strand.
+(let* ((fasta-table (funs::make-fasta-hash-table *sample-dataset*))
+       (shortest-fasta (find-shortest-strand fasta-table))
+       (shortest-strand (cdr shortest-fasta))
+       (shortest-length (length shortest-strand))
+       ;; use substrings of length of 2 then go higher until length of strand,
+       ;; starting with the first nt ending below the last.
+       (unique-subs (loop
+                       for i below (1- shortest-length)
+                       append (loop
+                                 for j from (+ 2 i) upto shortest-length
+                                 for subs = (subseq shortest-strand i j)
+                                 unless (member subs unique-subs :test #'string=) collect subs)
+                       into unique-subs
+                       finally
+                         (return unique-subs)))
+       (subs-found (loop
+                      for subs in unique-subs
+                      collect
+                        (cons subs
+                              (loop
+                                 for key being the hash-keys in fasta-table
+                                 as strand = (gethash key fasta-table)
+                                 as pos = (search subs strand)
+                                 when (not (string= key (car shortest-fasta)))
+                                 collect (cons key pos))))))
+  subs-found)
