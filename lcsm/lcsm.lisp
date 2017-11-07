@@ -16,8 +16,15 @@ ATACA
 
 (defun recur (s1 s2 max-len i j motifs matrix)
   (cond ((= i (length s1))
-         ;; Last iteration; return longest shared motifs.
-         motifs)
+         ;; Last iteration; return longest shared motifs with lengths
+         ;; > 1, along with lengths.
+         (loop for motif in (remove-if #'(lambda (m) (= 1 (cdr m))) motifs)
+               for len = (cdr motif)
+               ;; collect (cons (caar motif) len) into indices
+               collect motif into indices
+               collect len into lengths
+               finally
+               (return (list indices lengths))))
         ((= j (length s2))
          ;; Reached end of s2, go to next letter in s1.
          (recur s1 s2 max-len (1+ i) 0 motifs matrix))
@@ -44,6 +51,21 @@ ATACA
                       i (1+ j)          ; i j
                       motifs
                       (append (list (cons (cons i j) 0)) matrix))))))) ; matrix
+
+(defun common-max (lists)
+  (let ((maxes (loop for l in lists
+                     collect (apply #'max l) into maxes
+                     finally (return maxes))))
+    (if (apply #'= maxes)
+        (car maxes)
+        (let ((updated-lists (loop with m = (apply #'max maxes)
+                                   for l in lists
+                                   for new-l = (remove m l)
+                                   when (not (null new-l))
+                                     collect new-l)))
+          (if (> (length updated-lists) 1)
+              (common-max updated-lists)
+              nil)))))
 
 (defun parse (data)
   "Return a list of all possible substrings of the shortest strand in the FASTA
