@@ -52,20 +52,34 @@ ATACA
                       motifs
                       (append (list (cons (cons i j) 0)) matrix))))))) ; matrix
 
-(defun common-max (lists)
-  (let ((maxes (loop for l in lists
+(defun common-max (counts)
+  (let ((maxes (loop for l in counts
                      collect (apply #'max l) into maxes
                      finally (return maxes))))
     (if (apply #'= maxes)
         (car maxes)
-        (let ((updated-lists (loop with m = (apply #'max maxes)
-                                   for l in lists
+        (let ((updated-counts (loop with m = (apply #'max maxes)
+                                   for l in counts
                                    for new-l = (remove m l)
                                    when (not (null new-l))
                                      collect new-l)))
-          (if (> (length updated-lists) 1)
-              (common-max updated-lists)
+          (if (> (length updated-counts) 1)
+              (common-max updated-counts)
               nil)))))
+
+(defun normalize (common-max lcsms)
+  "Breaks `LCSMS' longer than the `COMMON-MAX' into substrands of that
+length. Also filters out `LCSMS' shorter than `COMMON-MAX'."
+  (loop for lcsm in lcsms
+        for lc-len = (cdr lcsm)
+        when (= common-max lc-len)
+          collect lcsm into normalized
+        when (< common-max lc-len)
+          append (loop for i from (caar lcsm) upto (+ (caar lcsm) (cdr lcsm)) by common-max
+                       collect (cons i (cdar lcsm)))
+            into normalized
+        finally
+           (return normalized)))
 
 (defun parse (data)
   "Return a list of all possible substrings of the shortest strand in the FASTA
