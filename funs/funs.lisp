@@ -36,6 +36,9 @@
                     v)
       collect (cons key val)))
 
+(defun hash-keys (table)
+  (loop for key being the hash-keys in table collect key))
+
 ;;; 
 ;;;--- TODO move to fasta project
 ;;; 
