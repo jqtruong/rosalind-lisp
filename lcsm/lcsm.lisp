@@ -14,40 +14,41 @@ ATACA
 
 (defvar *sample-output* "AC")
 
-(defun recur (s1 s2 max-len i j last-row motifs)
+(defun recur (s1 s2 max-len i j last-rows motifs)
   (cond ((= i (length s1))
          ;; Last iteration; return longest shared motifs with lengths
          ;; > 1, along with lengths.
          (loop for motif in (remove-if #'(lambda (m) (= 1 (cdr m))) motifs)
                for len = (cdr motif)
                collect motif into indices
-               collect len into lengths
+               unless (member len lengths)
+                 collect len into lengths
                finally
-               (return (list indices lengths))))
+                  (return (list indices lengths))))
         ((= j (length s2))
          ;; Reached end of s2, go to next letter in s1.
-         (recur s1 s2 max-len (1+ i) 0 '() motifs))
+         (recur s1 s2 max-len (1+ i) 0 (list (cadr last-rows) '()) motifs))
         (t
          (let* ((c1 (char s1 (or i 0)))
                 (c2 (char s2 (or j 0)))
-                (prev-len (or (and (> j 0) (nth (1- j) last-row))
+                (prev-len (or (and (> j 0) (nth (1- j) (car last-rows)))
                               0))
                 (len (1+ prev-len)))
            (if (char= c1 c2)
                (recur s1 s2
                       (max len max-len)  ; max-len
                       i (1+ j)           ; i j
+                      (list (car last-rows) (append (cadr last-rows) (list len)))
                       (if (> prev-len 0) ; motifs
                           (let* ((k (cons (- i prev-len) (- j prev-len)))
                                  (motif (assoc k motifs :test #'equal)))
                             (concatenate 'list
                                          (list (cons k (1+ (cdr motif))))
                                          (remove motif motifs :test #'equal)))
-                          (acons (cons i j) len motifs))
-                      (append (list (cons (cons i j) len)))) ;
+                          (acons (cons i j) len motifs)))
                (recur s1 s2 max-len
                       i (1+ j)          ; i j
-                      (append (list (cons (cons i j) 0)))
+                      (list (car last-rows) (append (cadr last-rows) '(0)))
                       motifs))))))
 
 (defun common-max (counts)

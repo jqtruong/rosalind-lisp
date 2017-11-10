@@ -405,6 +405,28 @@
 ** [[http://rosalind.info/problems/lcsm/][Searching Through the Haystack]]
    .o0(bare minimal description to find the longest common
    substring within DNA strands.)
+   
+   By far the hardest problem to solve since i started. i
+   have to use dynamic programming to find the long common
+   shared motif, and i'm running into a lot of trial and
+   error; all mostly good. I've cut down a lot of time,
+   first, by learning and applying dynamic programming, and
+   now looking into more ways to do so. One rule is to not
+   store luggage; only carry on, please. I used to keep
+   track of the matrix of matching suffixes, but it was only
+   necessary to know the last lengths from the previous
+   row. Now, i keep track of the shared motifs, but i wonder
+   if that's even necessary. For example, take a matching
+   substring from the first two strands, then see if it's
+   found in the rest, else throw it away. Another problem is
+   that with 4 nucleotides, very short common substrings are
+   plentiful and it should not be the end-goal to return
+   these; i.e. it seems more interesting to know the really
+   long ones. In that solution, i can still compare two
+   strands, then starting from the longest common shared
+   motif, check for it into each other strands. For 1k
+   bases, it takes almost 3 minutes to compare two strings,
+   and 196 GB!
 * Topics
 ** RNA
 *** Transcription
