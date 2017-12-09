@@ -1,0 +1,42 @@
+;;;; lia.lisp
+
+(in-package #:lia)
+
+(defvar *sample-dataset* '(2 1))
+
+(defvar *sample-output* 0.684)
+
+(defun ! (x &optional (acc 1))
+  (format t "~$" x)
+  (cond ((= 1 x) acc)
+        ((> 1 x) (! (1- x) (* acc x)))))
+
+(defun at-least (PR_n-1 sum n)
+  (let ((pr (apply PR_n-1 `(,n))))
+    (cond ((= n 0) (+ sum pr))
+          (t (at-least PR_n-1
+                       (+ sum pr)
+                       (1- n))))))
+
+(defun at-least-old (sum n children)
+  (cond ((= n 0) (+ sum (expt 3/4 children)))
+        (t (at-least (+ sum (expt 1/4 n))
+                     (1- n)
+                     children))))
+
+(defun probability (k N)
+  "Given `K' generations of a family tree that reproduces 2 children
+  each time, starting with `AaBb' parents and partnering only with
+  `AaBb' mates, calculate the probablity that at least `N' children
+  will also be `AaBb'. In this gene pool, the probability that no
+  children gets those alleles is 3/4 (see README.org)."
+
+  (let* ((children (expt 2 k))
+         (!children (! children)))
+    (- 1.0d0 (at-least (lambda (x)
+                         (/ (* !children
+                               (expt 1/4 x)
+                               (expt 3/4 (- children x)))
+                            (* (! x) (! (- children x)))))
+                           .0
+                           (1- N)))))

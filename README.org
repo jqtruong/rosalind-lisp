@@ -427,6 +427,126 @@
    motif, check for it into each other strands. For 1k
    bases, it takes almost 3 minutes to compare two strings,
    and 196 GB!
+** [[http://rosalind.info/problems/lia/][Mendel's Second Law]]
+   Given two organisms with two traits, A and B, and the
+   alleles O_1(AA, Bb) and O_2(Aa, bb), then the Punnet
+   squares are as follows:
+   |   | A  | A  |   |   | B  | b  |
+   | A | AA | AA |   | b | Bb | bb |
+   | a | Aa | Aa |   | b | Bb | bb |
+
+   giving the probabilities for possible offspring alleles:
+   - AA: 1/2
+   - Aa: 1/2
+   - Bb: 1/2
+   - bb: 1/2
+
+   And the probability of the offspring to have any
+   combination of A and B by multiplication, and in this
+   (bad) example, pick any two: 1/2 * 1/2 = 1/4.
+*** Problem
+    Given: Two positive integers k (k ≤ 7) and N (N ≤ 2^k). In
+    this problem, we begin with Tom, who in the 0th
+    generation has genotype Aa Bb. Tom has two children in
+    the 1st generation, each of whom has two children, and so
+    on. Each organism always mates with an organism having
+    genotype Aa Bb.
+
+    Return: The probability that at least N Aa Bb organisms
+    will belong to the k-th generation of Tom's family tree
+    (don't count the Aa Bb mates at each level). Assume that
+    Mendel's second law holds for the factors.
+**** Sample
+     : k = 2, N = 1
+     The probability that the 2nd generation will have at
+     least 1 Aa Bb organism, i.e. P_Ab * P_Bb.
+
+     |   | A  | a  |   |   | B  | b  |
+     |---+----+----+---+---+----+----|
+     | A | AA | Aa |   | B | BB | Bb |
+     | a | Aa | aa |   | b | Bb | bb |
+***** F_1
+      |    | AB    | Ab    | aB    | ab    |
+      |----+-------+-------+-------+-------|
+      | AB | AA BB | AA Bb | Aa BB | Aa Bb |
+      | Ab | AA Bb | AA bb | Aa Bb | Aa bb |
+      | aB | Aa BB | Aa Bb | aa BB | aa Bb |
+      | ab | Aa Bb | Aa bb | aa Bb | aa bb |
+***** F_2
+      | Gametes   | AB    | Ab    | aB    | ab    |
+      | Genotypes |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | AA BB     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | AB        | AA BB | AA Bb | Aa BB | Aa Bb |
+      |-----------+-------+-------+-------+-------|
+      | AA Bb     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | AB        | AA BB | AA Bb | Aa BB | Aa Bb |
+      | Ab        | AA Bb | AA bb | Aa Bb | Aa bb |
+      |-----------+-------+-------+-------+-------|
+      | Aa BB     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | AB        | AA BB | AA Bb | Aa BB | Aa Bb |
+      | aB        | Aa BB | Aa Bb | aa BB | aa bb |
+      |-----------+-------+-------+-------+-------|
+      | AA bb     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | Ab        | AA Bb | AA bb | Aa Bb | Aa bb |
+      |-----------+-------+-------+-------+-------|
+      | Aa bb     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | Ab        | AA Bb | AA bb | Aa Bb | Aa bb |
+      | ab        | Aa Bb | Aa bb | aa Bb | aa bb |
+      |-----------+-------+-------+-------+-------|
+      | aa BB     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | aB        | Aa BB | Aa Bb | aa BB | aa Bb |
+      |-----------+-------+-------+-------+-------|
+      | aa Bb     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | aB        | Aa BB | Aa Bb | aa BB | aa Bb |
+      | ab        | Aa Bb | Aa bb | aa Bb | aa bb |
+      |-----------+-------+-------+-------+-------|
+      | aa bb     |       |       |       |       |
+      |-----------+-------+-------+-------+-------|
+      | ab        | Aa Bb | Aa bb | aa Bb | aa bb |
+**** Probability of "At Least Once"
+     Calculate the chances for such event of not happening
+     at all, giving Pr_nope, then the chance of such event
+     happening once is equal to: 1 - Pr_nope.
+
+     Pr_nope in our case is 3/4 to the 4^th (4 children)
+     power, and the probability of at least one AaBb is:
+     Pr_AaBb = 1 - Pr_nope = 1 - 3/4^4 = 0.68359375
+
+     Now, is Pr_nope always 3/4 per child? It would seem so
+     because of the AaBb partner.
+**** Probability of "At Least N"
+     That would be 1 - Pr_nope + ... + Pr_n-_2 + Pr_n-_1. 
+
+     If k = 2, so with 4 children, 2^k, the probability that
+     only one is AaBb is, given:
+
+     - Pr_notAaBb: 3/4
+     - Pr_AaBb: 1/4
+
+     Pr_1AaBb = 3/4^3*1/4 = 0.1055
+
+     So "At Least 2" would be the probability for 2, 3, or 4
+     out of 4 children, i.e. 1 minus the probability that 0
+     or just 1 child are AaBb:
+
+     1 - Pr_nope - Pr_1AaBb = 1 - 0.3164 - 0.1055 = 0.5781
+
+     Based on [[https://math.stackexchange.com/questions/1477463/the-probability-of-at-least-18-successes-in-20-trials-binomial-distribution][this]], we need to take the factorial of the
+     number of children multiplied by each probabilities,
+     divided by the factorials of successes and failures.
+
+     1 - (4!⋅Pr_nope)/(0!4!) - (4!⋅Pr_1AaBb)/(1!3!) = 0.2617
+
+     why? Binomial Distribution; more on that some other
+     day.
 * Topics
 ** RNA
 *** Transcription
@@ -538,3 +658,4 @@
    and create new problem solving files
 * Refs
   - [[https://chem.libretexts.org/Core/Biological_Chemistry/Nucleic_Acids/DNA/Transcription_of_DNA_Into_messenger_RNA#title][RNA]]
+  - [[https://math.stackexchange.com/questions/1477463/the-probability-of-at-least-18-successes-in-20-trials-binomial-distribution][Probability for At Least N]]

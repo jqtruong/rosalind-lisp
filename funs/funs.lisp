@@ -62,3 +62,9 @@
        do (setf (gethash key fasta-table) (remove #\Newline val)))
 
     fasta-table))
+
+(defun ! (x &optional (acc 1))
+  "Factorial!"
+  (cond ((= x 1) acc)
+        ((> x 1) (! (1- x) (* acc x)))
+        (t acc)))
