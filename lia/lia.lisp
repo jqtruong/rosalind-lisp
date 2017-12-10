@@ -23,8 +23,9 @@
   (let* ((children (expt 2 k))
          (children! (funs::! children)))
     (- 1 (at-least (lambda (x)
-                     (/ (* children!
-                           (expt 1/4 x)
-                           (expt 3/4 (- children x)))
-                        (* (funs::! x) (funs::! (- children x)))))
+                     (let ((y (- children x)))
+                       (/ (* children!
+                             (expt 1/4 x)
+                             (expt 3/4 y))
+                          (* (funs::! x) (funs::! y)))))
                    (1- N)))))
