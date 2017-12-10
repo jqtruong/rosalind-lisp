@@ -6,10 +6,10 @@
 
 (defvar *sample-output* 0.684)
 
-(defun at-least (PR_n-1 n &optional (sum 0))
-  (let ((pr (apply PR_n-1 `(,n))))
+(defun at-least (bin-dist-lambda n &optional (sum 0))
+  (let ((pr (apply bin-dist-lambda `(,n))))
     (cond ((= n 0) (+ sum pr))
-          (t (at-least PR_n-1
+          (t (at-least bin-dist-lambda
                        (1- n)
                        (+ sum pr))))))
 

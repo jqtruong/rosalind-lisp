@@ -545,8 +545,61 @@
 
      1 - (4!⋅Pr_nope)/(0!4!) - (4!⋅Pr_1AaBb)/(1!3!) = 0.2617
 
-     why? Binomial Distribution; more on that some other
-     day.
+     why? [[Binomial Distribution][Binomial Distribution]].
+**** Binomial Distribution
+     Given a number of items, =n=, and a number of different
+     items in =n='s set, =k=, the Binomial Coefficient: 
+
+     (a b) = a!/b!(a - b)!
+
+     Since a factorial gives the number of permutations a
+     series of items can have, e.g., given 3 items a, b, and
+     c:
+
+     | 1 | a | b | c |
+     | 2 | a | c | b |
+     | 3 | b | a | c |
+     | 4 | b | c | a |
+     | 5 | c | a | b |
+     | 6 | c | b | a |
+
+     There are 3! permutations: 6. Now supposed that c = b,
+     essentially change this series from 3 differnt items to
+     2, then rows 1 and 2, 3 and 5, 4 and 6 are the same,
+     giving only 3 permutations. Using the formula above, we
+     also get the same result:
+
+     #+BEGIN_EXAMPLE
+     (3 2) = 3!/2!(3 - 2)!
+           = 6/2
+           = 3
+     #+END_EXAMPLE
+
+     For the distruction part, the denominator depends on
+     how many of each of the different items there is, like
+     a derivative. For the problem at hand, there are 2^k
+     items, 2 differents items (3/4 and 1/4, the complement
+     probabilities for AaBb children), so let's start with
+     the sample of k = 2 and N = 1. We still need to know
+     Pr_nope, which is 3/4^4, such that none of the 4 children
+     in the second generation are AaBb, which also give 0
+     children are AaBb, giving:
+
+     Pr_nope = 4! × (3/4^4 × 1/4^0) ÷ (4! × 0!)
+
+     The 4!'s cancel out, 1/4^0 is just 1, leaving 3/4^4, and
+     giving for At Least 1 probability:
+
+     Pr_AL1 = 1 - Pr_nope = .684
+
+     Let's do N=2 now. We still need Pr_nope, and we also
+     need Pr_1, for exactly 1 child is AaBb, which is:
+
+     Pr_1 = 4! × (3/4^3 × 1/4^1) ÷ (3! × 1!) = 0.422
+
+     Giving:
+
+     Pr_AL1 = 1 - Pr_nope - Pr_1 = 0.262
 * Topics
 ** RNA
 *** Transcription
