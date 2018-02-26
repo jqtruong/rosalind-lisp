@@ -1,6 +1,7 @@
 #+STARTUP: hidestars
 
 * Problems
+
 ** [[http://rosalind.info/problems/dna/][A Rapid Introduction to Molecular Biology]]
    The cell, the building block of life, contains a nucleus
    filled with chromatin. The Deoxyribose Nucleic Acids are
@@ -46,6 +47,7 @@
    alive, so antibiotics can recognize them and kill them. is
    that how it works? how does a virus infection "run its
    course"? See [[*%5B%5Bhttps://en.wikipedia.org/wiki/Virus%5D%5BVirus%5D%5D][#Virus]].)
+
 ** The Second Nucleic Acid
    Along with the DNA molecule, the Ribose Nucleic Acid also
    exists in the chromatin. RNA is very similar in structure
@@ -69,6 +71,7 @@
    travels outside the nucleus to perform cell tasks.
 
    .o0(when is it just an RNA?)
+
 ** [[http://rosalind.info/problems/revc/][The Secondary and Tertiary Structures of DNA]]
    This chapter re-iterates the double-helix shape of DNA
    strands, which was proposed by James Watson and Francis
@@ -76,6 +79,7 @@
 
    The complementary bases (A ↔ T and C ↔ G) are also called
    "base-pairs", or "bp" for short.
+
 ** [[http://rosalind.info/problems/fib/][Wascally Wabbits]]
    This chapter covers the Fibonacci series, a man also known
    as Leonardo de Pisa, and how he solved a
@@ -94,6 +98,7 @@
    Relation; recursively calculate previous values.
 
    .o0(in Lisp, that is similar to "[[http://kaygun.tumblr.com/post/98251739694/a-memoization-macro-for-common-lisp][memoization]]".)
+
 *** Sample
     Find the number of pairs, starting with 1 pair, in 5
     months, if a pair of rabbits give 3 offsprings each
@@ -112,6 +117,7 @@
       lower case letter :: new born pair
       upper case letter :: grown up and ready to mate pair
     #+END_EXAMPLE
+
 *** Compare standard recursion against memoize
     Standard recursion:
     #+BEGIN_EXAMPLE
@@ -138,6 +144,7 @@
   
       148277527396903091
     #+END_EXAMPLE
+
 ** [[http://rosalind.info/problems/gc/][Identifying Unknown DNA Quickly]]
    Using frequency to determine origin of a long enough sample.
   
@@ -151,6 +158,7 @@
    be distinguished by tiny discrepancies of that ratio,
    e.g. prokaryotes (like bacteria) have a GC-content higher
    than 50%.
+
 ** [[http://rosalind.info/problems/hamm/][Evolution as a Sequence of Mistakes]]
    Point mutations happen at the DNA level and can cause a
    ripple effect since protein creation starts from genes
@@ -159,6 +167,7 @@
 
    Comparing DNA from two species might reveal a common
    ancestor.
+
 ** [[http://rosalind.info/problems/iprb/][Introduction to Mendelian Inheritance]]
    Gregor Mendel describes hereditiy, how a trait is passed
    down from parent to child. A unit of heredity is called a
@@ -176,6 +185,7 @@
   
    .o0(some people have wet or dry earwax, and that's a
    Mendelian trait!)
+
 *** Sample
     Given a number for each of
     the following organisms with alleles:
@@ -239,6 +249,7 @@
     |   | n  | n  |
     | n | nn | nn |
     | n | nn | nn |
+
 ** [[http://rosalind.info/problems/prot/][The Genetic Code]]
    Protein chains are made of amino acids and are defined by
    the order and combination of those.o0(so not made of all
@@ -274,6 +285,7 @@
    The interval of (D|R)NA that translates into a protein is
    called a gene. Genes also differentiate organisms, serve
    as a basis for heredity.
+
 ** [[http://rosalind.info/problems/subs/][Combing Through the Haystack]]
    Similar intervals in DNA found in two different organisms
    could mean a gene or protein that provides the same trait
@@ -288,6 +300,7 @@
    kinda of big deal as it occupies 10.7% of the human
    genome and can replicate to be inserted elsewhere on the
    genome, as well as move about, a.k.a. retrotransposon.)
+
 ** [[http://rosalind.info/problems/cons/][Finding a Most Likely Common Ancestor]]
    Using a profile matrix, we can determine a consensus
    string, which contains the most abundant nucleobases in
@@ -312,6 +325,7 @@
 
    This DNA string would be the most likely common ancestor
    from the given 7 DNA strings.
+
 ** [[http://rosalind.info/problems/fibd/][Wabbit Season]]
    Revisiting the Fibonacci rate for rabbits reproduction but
    introducing the mortality rate.
@@ -320,6 +334,7 @@
    need to determine another to incorporate the death of a
    pair of rabbits after a given number of months. Also,
    pairs of rabbits strictly give one offspring per cycle.
+
 *** Sample
     [[http://rosalind.info/media/problems/fibd/mortal_rabbit_tree.png][Figure 4]] shows an example clearly enough. In 6 cycles,
     starting with a pair of rabbits that will give a single
@@ -395,13 +410,16 @@
 
     E.g. at F_5 in the previous example, we get the one that
     was born two cycles ago, 
+
 ** [[http://rosalind.info/problems/grph/][A Brief Introduction to Graph Theory]]
    .o0(nothing of biological learning value here; it just
    explains graph theory.)
+
 ** [[http://rosalind.info/problems/iev/][The Need for Averages]]
    .o0(again, nothing of biological learning value here, just
    the importance of predicting a possible future based on
    averages of collected data.)
+
 ** [[http://rosalind.info/problems/lcsm/][Searching Through the Haystack]]
    .o0(bare minimal description to find the longest common
    substring within DNA strands.)
@@ -427,6 +445,7 @@
    motif, check for it into each other strands. For 1k
    bases, it takes almost 3 minutes to compare two strings,
    and 196 GB!
+
 ** [[http://rosalind.info/problems/lia/][Mendel's Second Law]]
    Given two organisms with two traits, A and B, and the
    alleles O_1(AA, Bb) and O_2(Aa, bb), then the Punnet
@@ -444,6 +463,7 @@
    And the probability of the offspring to have any
    combination of A and B by multiplication, and in this
    (bad) example, pick any two: 1/2 * 1/2 = 1/4.
+
 *** Problem
     Given: Two positive integers k (k ≤ 7) and N (N ≤ 2^k). In
     this problem, we begin with Tom, who in the 0th
@@ -456,6 +476,7 @@
     will belong to the k-th generation of Tom's family tree
     (don't count the Aa Bb mates at each level). Assume that
     Mendel's second law holds for the factors.
+
 **** Sample
      : k = 2, N = 1
      The probability that the 2nd generation will have at
@@ -465,6 +486,7 @@
      |---+----+----+---+---+----+----|
      | A | AA | Aa |   | B | BB | Bb |
      | a | Aa | aa |   | b | Bb | bb |
+
 ***** F_1
       |    | AB    | Ab    | aB    | ab    |
       |----+-------+-------+-------+-------|
@@ -472,6 +494,7 @@
       | Ab | AA Bb | AA bb | Aa Bb | Aa bb |
       | aB | Aa BB | Aa Bb | aa BB | aa Bb |
       | ab | Aa Bb | Aa bb | aa Bb | aa bb |
+
 ***** F_2
       | Gametes   | AB    | Ab    | aB    | ab    |
       | Genotypes |       |       |       |       |
@@ -511,6 +534,7 @@
       | aa bb     |       |       |       |       |
       |-----------+-------+-------+-------+-------|
       | ab        | Aa Bb | Aa bb | aa Bb | aa bb |
+
 **** Probability of "At Least Once"
      Calculate the chances for such event of not happening
      at all, giving Pr_nope, then the chance of such event
@@ -522,6 +546,7 @@
 
      Now, is Pr_nope always 3/4 per child? It would seem so
      because of the AaBb partner.
+
 **** Probability of "At Least N"
      That would be 1 - Pr_nope + ... + Pr_n-_2 + Pr_n-_1. 
 
@@ -546,6 +571,7 @@
      1 - (4!⋅Pr_nope)/(0!4!) - (4!⋅Pr_1AaBb)/(1!3!) = 0.2617
 
      why? [[Binomial Distribution][Binomial Distribution]].
+
 **** Binomial Distribution
      Given a number of items, =n=, and a number of different
      items in =n='s set, =k=, the Binomial Coefficient: 
@@ -600,6 +626,7 @@
      Giving:
 
      Pr_AL1 = 1 - Pr_nope - Pr_1 = 0.262
+
 ** [[http://rosalind.info/problems/mprt/][Motif Implies Function]]
    Proteins perform every practical function in the cell.
 
@@ -615,8 +642,11 @@
 *** UniProt
     Protein fasta format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting
     with "sp".
+
 * Topics
+
 ** RNA
+
 *** Transcription
     .o0(seems that a coding strand is just named that way
     instead of saying "going 5'->3' direction, and vice
@@ -628,12 +658,14 @@
 
     RNA is different DNA in that the former is just a
     section, a gene or protein recipe, taken from the DNA.
+
 *** Interference
     .o0(how are there double strand RNA?)
 
     RNA strands can be produced from each one of the DNA,
     producing complementary ones, given they start and end at
     the same respective points along the helix.
+
 *** Codon table
     | Uracil |      | Cytosine |   | Adanine |           | Guanine |   |
     |--------+------+----------+---+---------+-----------+---------+---|
@@ -653,6 +685,7 @@
     | UGC    | C    | CGC      | R | AGC     | S         | GGC     | G |
     | UGA    | Stop | CGA      | R | AGA     | R         | GGA     | G |
     | UGG    | W    | CGG      | R | AGG     | R         | GGG     | G |
+
 ** [[https://en.wikipedia.org/wiki/Virus][Virus]]
    - only replicates inside living cells
    - consists of 2 or 3 things:
@@ -678,6 +711,7 @@
    blood (like white cells) from a strong immune system is
    transfused into the virus-infected host to help fight and
    teach the host.)
+
 * Glossary
   - 5' -> 3' :: (say 5 or 3 prime) direction of the coding
                 strand
@@ -712,8 +746,11 @@
                 DNA coding strand that the RNA polymerase
                 will attach to and start creating a copy of
                 it as an RNA strand.
+
 * Sidebar
+
 * Lisp
+
 ** Getting started
    #+BEGIN_EXAMPLE
      M-x slime<ret>
@@ -721,9 +758,12 @@
      CL-USER> (in-package "dna")
      CL-USER> *sample*
    #+END_EXAMPLE
+
 * TODOs
+
 ** TODO split functions from files
    and create new problem solving files
+
 * Refs
   - [[https://chem.libretexts.org/Core/Biological_Chemistry/Nucleic_Acids/DNA/Transcription_of_DNA_Into_messenger_RNA#title][RNA]]
   - [[https://math.stackexchange.com/questions/1477463/the-probability-of-at-least-18-successes-in-20-trials-binomial-distribution][Probability for At Least N]]
