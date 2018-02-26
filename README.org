@@ -600,6 +600,21 @@
      Giving:
 
      Pr_AL1 = 1 - Pr_nope - Pr_1 = 0.262
+** [[http://rosalind.info/problems/mprt/][Motif Implies Function]]
+   Proteins perform every practical function in the cell.
+
+   Protein domain is an interval of amino acids that can
+   evolve and function independently.
+
+   Example functions of protein domains: 
+   - binding the protein to DNA,
+   - creating or breaking specific chemical bonds
+
+   Proteins can be part of multiple domains.
+   
+*** UniProt
+    Protein fasta format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting
+    with "sp".
 * Topics
 ** RNA
 *** Transcription
