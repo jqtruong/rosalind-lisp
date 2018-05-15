@@ -480,7 +480,7 @@
 **** Sample
      : k = 2, N = 1
      The probability that the 2nd generation will have at
-     least 1 Aa Bb organism, i.e. P_Ab * P_Bb.
+     least 1 Aa Bb organism.
 
      |   | A  | a  |   |   | B  | b  |
      |---+----+----+---+---+----+----|
@@ -540,8 +540,11 @@
      at all, giving Pr_nope, then the chance of such event
      happening once is equal to: 1 - Pr_nope.
 
-     Pr_nope in our case is 3/4 to the 4^th (4 children)
-     power, and the probability of at least one AaBb is:
+     Pr_nope in our case is 3/4 (substract the count of =Aa
+     Bb= from the total number of combinations in the tables
+     above) to the 4^th (4 children) power, and the
+     probability of at least one AaBb is: 
+
      Pr_AaBb = 1 - Pr_nope = 1 - 3/4^4 = 0.68359375
 
      Now, is Pr_nope always 3/4 per child? It would seem so
@@ -551,35 +554,41 @@
      That would be 1 - Pr_nope + ... + Pr_n-_2 + Pr_n-_1. 
 
      If k = 2, so with 4 children, 2^k, the probability that
-     only one is AaBb is, given:
+     only one is AaBb is when three children are born with
+     the probability Pr_notAaBb and that one child is born
+     with the probability Pr_AaBb:
 
-     - Pr_notAaBb: 3/4
-     - Pr_AaBb: 1/4
+     - Pr_notAaBb: 3/4 children
+     - Pr_AaBb: 1/4 children
 
-     Pr_1AaBb = 3/4^3*1/4 = 0.1055
+     .o0(four children must be born, so it's not just 1/4)
 
-     So "At Least 2" would be the probability for 2, 3, or 4
-     out of 4 children, i.e. 1 minus the probability that 0
-     or just 1 child are AaBb:
+     Pr_1AaBb = 3/4 * 3/4 * 3/4 * 1/4 = 0.1055
+
+     So "At Least 2" means the probability of 2, 3, and 4
+     out of 4 children are AaBb, i.e. 1 minus the
+     probability that 0 or just 1 child are AaBb:
 
      1 - Pr_nope - Pr_1AaBb = 1 - 0.3164 - 0.1055 = 0.5781
 
-     Based on [[https://math.stackexchange.com/questions/1477463/the-probability-of-at-least-18-successes-in-20-trials-binomial-distribution][this]], we need to take the factorial of the
-     number of children multiplied by each probabilities,
-     divided by the factorials of successes and failures.
+     But, based on [[https://math.stackexchange.com/questions/1477463/the-probability-of-at-least-18-successes-in-20-trials-binomial-distribution][this]], we need to take the factorial of
+     the number of children multiplied by each
+     probabilities, divided by the factorials of successes
+     and failures.
 
      1 - (4!⋅Pr_nope)/(0!4!) - (4!⋅Pr_1AaBb)/(1!3!) = 0.2617
 
      why? [[Binomial Distribution][Binomial Distribution]].
 
 **** Binomial Distribution
-     Given a number of items, =n=, and a number of different
-     items in =n='s set, =k=, the Binomial Coefficient: 
+     First, let's dive into the Binomial Coefficient; given
+     a number of items, =n=, and a number of different items
+     in =n='s set, =k=:
 
      (a b) = a!/b!(a - b)!
 
      Since a factorial gives the number of permutations a
-     series of items can have, e.g., given 3 items a, b, and
+     series of items can have, e.g. given 3 items a, b, and
      c:
 
      | 1 | a | b | c |
@@ -587,13 +596,14 @@
      | 3 | b | a | c |
      | 4 | b | c | a |
      | 5 | c | a | b |
+
      | 6 | c | b | a |
 
-     There are 3! permutations: 6. Now supposed that c = b,
-     essentially change this series from 3 differnt items to
-     2, then rows 1 and 2, 3 and 5, 4 and 6 are the same,
-     giving only 3 permutations. Using the formula above, we
-     also get the same result:
+     There are 3! permutations: 6. Now suppose that c = b,
+     change this series from 3 different items to 2, then
+     rows 1 and 2, 3 and 5, 4 and 6 are the same, giving
+     only 3 permutations. Using the formula above, we also
+     get the same result:
 
      #+BEGIN_EXAMPLE
      (3 2) = 3!/2!(3 - 2)!
@@ -601,14 +611,14 @@
            = 3
      #+END_EXAMPLE
 
-     For the distruction part, the denominator depends on
-     how many of each of the different items there is, like
-     a derivative. For the problem at hand, there are 2^k
-     items, 2 differents items (3/4 and 1/4, the complement
-     probabilities for AaBb children), so let's start with
-     the sample of k = 2 and N = 1. We still need to know
-     Pr_nope, which is 3/4^4, such that none of the 4 children
-     in the second generation are AaBb, which also give 0
+     For the Binomial Distribution, the denominator depends
+     on how many of each of the different items there are,
+     like a derivative. For the problem at hand, there are
+     2^k items, 2 different items (3/4 and 1/4, the
+     complement probabilities for Pr_1AaBb), so let's start
+     with the sample of k = 2 and N = 1. We still need to
+     know Pr_nope, which is 3/4^4, such that none of the 4
+     children in the second generation are AaBb, i.e. 0
      children are AaBb, giving:
 
      Pr_nope = 4! × (3/4^4 × 1/4^0) ÷ (4! × 0!)
@@ -657,7 +667,7 @@
    function.)
    
 *** UniProt
-    Protein fasta format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting
+    Protein FASTA format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting
     with "sp".
 
 * Topics
