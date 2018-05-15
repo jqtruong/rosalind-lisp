@@ -637,7 +637,24 @@
    - binding the protein to DNA,
    - creating or breaking specific chemical bonds
 
-   Proteins can be part of multiple domains.
+   Proteins can be part of multiple domains, and can be
+   artificially made to be so!
+
+   Proteins can evolve, forming families.
+
+   .o0(how does their evolution affect us?)
+
+   A domain determines function, and the component that
+   determines such function is called a motif, but unlike in
+   D/RNA strands, it is also referred to as a block,
+   signature, fingerprint, etc.
+
+   Protein motifs stay mostly the same across different
+   species, a.k.a. evolutionary conservative.
+
+   .o0(so a protein motif, or pattern, or whatever, can be
+   found in a different specie and perform the same
+   function.)
    
 *** UniProt
     Protein fasta format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting
