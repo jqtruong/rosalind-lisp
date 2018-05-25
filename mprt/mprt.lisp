@@ -25,4 +25,4 @@ P20840_SAG1_YEAST
   the motif can be found."
 
   (loop for id in unitprod-ids
-        ))
+        (funs::uniprot/request-fasta id)))

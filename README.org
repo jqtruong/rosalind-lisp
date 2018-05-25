@@ -640,8 +640,8 @@
 ** [[http://rosalind.info/problems/mprt/][Motif Implies Function]]
    Proteins perform every practical function in the cell.
 
-   Protein domain is an interval of amino acids that can
-   evolve and function independently.
+   Protein domain is a recurring interval of amino acids
+   that can evolve and function independently.
 
    Example functions of protein domains: 
    - binding the protein to DNA,
@@ -665,6 +665,16 @@
    .o0(so a protein motif, or pattern, or whatever, can be
    found in a different specie and perform the same
    function.)
+
+   go to http://www.uniprot.org/ to view one of the central
+   repositories that gathers protein information.
+
+   #+BEGIN_QUOTE
+   The mission of UniProt is to provide the scientific
+   community with a comprehensive, high-quality and freely
+   accessible resource of protein sequence and functional
+   information.
+   #+END_QUOTE
    
 *** UniProt
     Protein FASTA format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting
