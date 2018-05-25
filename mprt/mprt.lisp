@@ -1,4 +1,5 @@
 ;;;; mprt.lisp
+;;;; Motif Protein
 
 (in-package #:mprt)
 
@@ -19,9 +20,9 @@ P20840_SAG1_YEAST
 (defun problem (uniprot-ids)
   "Given: At most 15 UniProt Protein Database access IDs.
 
-  Return: For each protein possessing the N-glycosylation motif,
-  output its given access ID followed by a list of locations in the
-  protein string where the motif can be found."
+  Return: For each protein possessing the N-glycosylation motif, output its
+  given access ID followed by a list of locations in the protein string where
+  the motif can be found."
 
   (loop for id in unitprod-ids
         ))
