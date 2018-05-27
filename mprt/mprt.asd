@@ -5,7 +5,7 @@
   :author "Your Name <your.name@example.com>"
   :license "Specify license here"
   :serial t
-  :depends-on (#:funs)
+  :depends-on (#:funs #:uniprot)
   :components ((:file "package")
                (:file "mprt")))
 
