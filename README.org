@@ -675,6 +675,9 @@
    accessible resource of protein sequence and functional
    information.
    #+END_QUOTE
+
+   N-glycosylation is the attachment of a oligosaccharide
+   (many simple sugars) to a nitrogen atom.
    
 *** UniProt
     Protein FASTA format in UniProt is [[https://en.wikipedia.org/wiki/FASTA_format#Sequence_identifiers][Swiss-Prot]], starting

@@ -15,9 +15,15 @@ P07204_TRBM_HUMAN
 P20840_SAG1_YEAST
 79 109 135 248 306 348 364 402 485 501 614")
 
-(defvar N-glycosylation "N{P}[ST]{P}")
+(defvar *N-glycosylation* "N{P}[ST]{P}")
 
-(defun search-for-N-glycosylation (fasta)
+(defun create-motif-scanner (motif)
+  "Takes a motif expression and converts it to a regular expression
+  with CL-PPCRE."
+
+  )
+
+(defun search-fasta (fasta motif)
   fasta)
 
 (defun problem (uniprot-ids)
@@ -29,4 +35,4 @@ P20840_SAG1_YEAST
 
   (loop for id in uniprot-ids
         for fasta = (funs::uniprot/request-fasta id)
-        collect (cons id (search-for-N-glycosylation fasta))))
+        collect (cons id (search-fasta fasta *N-glycosylation*))))
