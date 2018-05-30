@@ -21,7 +21,8 @@ P20840_SAG1_YEAST
   "Takes a motif expression and converts it to a regular expression
   with CL-PPCRE."
 
-  )
+  (let ((regexp motif))
+    (cl-ppcre::create-scanner regexp)))
 
 (defun search-fasta (fasta motif)
   fasta)
