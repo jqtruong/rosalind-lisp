@@ -2,9 +2,8 @@
 
 (defpackage :strand
   (:use :cl)
-  (:export
-   #:count-bases
-   #:get-count))
+  (:export #:count-bases
+           #:print-base-count))
 
 (in-package #:strand)
 
@@ -18,11 +17,6 @@
           base-counts))
 
 (defun count-bases (strand)
-  "Given: A DNA string `STRAND' of length at most 1000 nt (nucleotides).
-
-Return: Four integers (separated by spaces) counting the respective number of
-times that the symbols `A', `C', `G', and `T' occur in `STRAND'."
-
   (loop for nt across strand
      counting (char-equal #\A nt) into Adenine
      counting (char-equal #\C nt) into Cytosine
@@ -30,3 +24,11 @@ times that the symbols `A', `C', `G', and `T' occur in `STRAND'."
      counting (char-equal #\T nt) into Thymine
      finally
        (return `((#\A . ,Adenine) (#\C . ,Cytosine) (#\G . ,Guanine) (#\T . ,Thymine)))))
+
+(defun print-base-count (strand)
+  (let ((bases (count-bases strand)))
+    (format t "~d ~d ~d ~d"
+            (get-count #\A bases)
+            (get-count #\C bases)
+            (get-count #\G bases)
+            (get-count #\T bases))))
