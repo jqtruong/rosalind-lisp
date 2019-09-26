@@ -12,4 +12,5 @@
                 :components ((:file "strand")))
                (:module #:prb
                 :components ((:file "001.dna")
-                             (:file "002.rna")))))
+                             (:file "002.rna")
+                             (:file "003.revc")))))

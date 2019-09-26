@@ -34,5 +34,15 @@
             (get-count #\G bases)
             (get-count #\T bases))))
 
+(defun reverse-complement (strand)
+  "Loop through the reverse of the strand and collect the bases. Then, format the list of characters into a string."
+  (let ((revc (loop for nt across (reverse strand)
+                    collect (cond ((char-equal #\A nt) #\T)
+                                  ((char-equal #\C nt) #\G)
+                                  ((char-equal #\G nt) #\C)
+                                  ((char-equal #\T nt) #\A)
+                                  (t #\Space )))))
+    (format t "~{~c~^~}"revc)))
+
 (defun transcribe (strand)
   (substitute #\U #\T (string-upcase strand)))
