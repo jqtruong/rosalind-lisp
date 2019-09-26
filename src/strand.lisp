@@ -3,18 +3,10 @@
 (defpackage :strand
   (:use :cl)
   (:export #:count-bases
-           #:print-base-count))
+           #:print-base-count
+           #:transcribe))
 
 (in-package #:strand)
-
-(defun get-count (key bases)
-  (cdr (assoc key bases)))
-
-(defun get-majority-base (base-counts)
-  (reduce #'(lambda (a b) 
-              (cond ((> (cdr a) (cdr b)) a)
-                    (t b)))
-          base-counts))
 
 (defun count-bases (strand)
   (loop for nt across strand
@@ -25,6 +17,15 @@
      finally
        (return `((#\A . ,Adenine) (#\C . ,Cytosine) (#\G . ,Guanine) (#\T . ,Thymine)))))
 
+(defun get-count (key bases)
+  (cdr (assoc key bases)))
+
+(defun get-majority-base (base-counts)
+  (reduce #'(lambda (a b) 
+              (cond ((> (cdr a) (cdr b)) a)
+                    (t b)))
+          base-counts))
+
 (defun print-base-count (strand)
   (let ((bases (count-bases strand)))
     (format t "~d ~d ~d ~d"
@@ -32,3 +33,6 @@
             (get-count #\C bases)
             (get-count #\G bases)
             (get-count #\T bases))))
+
+(defun transcribe (strand)
+  (substitute #\U #\T (string-upcase strand)))
